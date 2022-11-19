@@ -339,7 +339,6 @@ int s21_inverse_matrix(matrix_t *A, matrix_t *result) {
   int returnable = s21_check_matrix(A);
   if (returnable == OK) {
     if (A->columns == A->rows) {
-      // returnable = s21_create_matrix(A->rows, A->columns, result);
       if (returnable == OK) {
         double res = 0;
         matrix_t A_copy;
@@ -373,57 +372,3 @@ int s21_inverse_matrix(matrix_t *A, matrix_t *result) {
   return returnable;
 }
 
-// void s21_gen_matrix(matrix_t *A) {
-//   double num = 1;
-//   for (int i = 0; i < A->rows; i++) {
-//     for (int j = 0; j < A->columns; j++, num++) {
-//       A->matrix[i][j] = num;
-//     }
-//   }
-// }
-
-// int main() {
-//   const int size = 3;
-//   matrix_t m = {0};
-//   s21_create_matrix(size, size, &m);
-//   m.matrix[0][0] = 1;
-//   m.matrix[0][1] = 2;
-//   m.matrix[0][2] = 3;
-//   m.matrix[1][1] = 4;
-//   m.matrix[1][2] = 2;
-//   m.matrix[2][0] = 5;
-//   m.matrix[2][1] = 2;
-//   m.matrix[2][2] = 1;
-
-//   matrix_t expected = {0};
-//   s21_create_matrix(size, size, &expected);
-//   expected.matrix[0][1] = 10;
-//   expected.matrix[0][2] = -20;
-//   expected.matrix[1][0] = 4;
-//   expected.matrix[1][1] = -14;
-//   expected.matrix[1][2] = 8;
-//   expected.matrix[2][0] = -8;
-//   expected.matrix[2][1] = -2;
-//   expected.matrix[2][2] = 4;
-
-//   matrix_t res = {0};
-//   s21_calc_complements(&m, &res);
-
-//   if (s21_eq_matrix(&expected, &res) == 1) printf("YES\n");
-//   s21_remove_matrix(&m);
-//   s21_remove_matrix(&res);
-//   s21_remove_matrix(&expected);
-//   return 0;
-// }
-
-// int main() {
-//   matrix_t test, result;
-//   s21_create_matrix(3, 2, &test);
-//   int result_status;
-//   s21_gen_matrix(&test);
-//   result_status = s21_calc_complements(&test, &result);
-//   if (result_status == 2) printf("YES\n");
-//   s21_remove_matrix(&test);
-//   s21_remove_matrix(&result);
-//   return 0;
-// }
